@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio của Tôi</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Phần Header -->
     <header>
         <div class="container">
             <h1>Portfolio của Tôi</h1>
@@ -20,26 +22,39 @@
         </div>
     </header>
 
+    <!-- Phần Giới thiệu -->
     <section id="about" class="section">
         <div class="container">
-            <h2>Giới thiệu</h2>
-            <p>Xin chào! Tôi là một nhà phát triển web đam mê với việc tạo ra các trang web đẹp và chức năng. Tôi có kinh nghiệm trong HTML, CSS, JavaScript, và các công nghệ web khác.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Xin chào, tôi là [Tên của bạn]</h2>
+                    <p>Tôi là một nhà phát triển web và designer với niềm đam mê tạo ra những sản phẩm đẹp và hiệu quả. Tôi có kinh nghiệm trong HTML, CSS, JavaScript, và các công nghệ hiện đại khác.</p>
+                    <a href="#contact" class="btn">Liên hệ với tôi</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/avatar.jpg" alt="Ảnh của tôi">
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Phần Dự án -->
     <section id="projects" class="section">
         <div class="container">
-            <h2>Dự án</h2>
+            <h2>Dự án của tôi</h2>
             <div class="project-list">
                 <div class="project-item">
+                    <img src="images/project1.jpg" alt="Dự án 1">
                     <h3>Dự án 1</h3>
                     <p>Mô tả ngắn về dự án 1.</p>
                 </div>
                 <div class="project-item">
+                    <img src="images/project2.jpg" alt="Dự án 2">
                     <h3>Dự án 2</h3>
                     <p>Mô tả ngắn về dự án 2.</p>
                 </div>
                 <div class="project-item">
+                    <img src="images/project3.jpg" alt="Dự án 3">
                     <h3>Dự án 3</h3>
                     <p>Mô tả ngắn về dự án 3.</p>
                 </div>
@@ -47,6 +62,7 @@
         </div>
     </section>
 
+    <!-- Phần Liên hệ -->
     <section id="contact" class="section">
         <div class="container">
             <h2>Liên hệ</h2>
@@ -60,17 +76,22 @@
                 <label for="message">Lời nhắn:</label>
                 <textarea id="message" name="message" required></textarea>
                 
-                <button type="submit">Gửi</button>
+                <button type="submit" class="btn">Gửi</button>
             </form>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2023 Portfolio của Tôi. Tất cả quyền được bảo lưu.</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+            </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
+<script src="script.js"></script>
 </html>
