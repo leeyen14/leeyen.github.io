@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio của Tôi</title>
+    <title>Yen's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -11,49 +11,64 @@
     <!-- Phần Header -->
     <header>
         <div class="container">
-            <h1>Portfolio của Tôi</h1>
+            <h1>Yen's Portfolio</h1>
             <nav>
                 <ul>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#projects">Dự án</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
+                    <li><a href="#about" data-target="about">Introduction</a></li>
+                    <li><a href="#experience" data-target="experience">Experience</a></li>
+                    <li><a href="#projects" data-target="projects">Projects</a></li>
+                    
                 </ul>
             </nav>
         </div>
     </header>
 
     <!-- Phần Giới thiệu -->
-    <section id="about" class="section">
+    <section id="about" class="section fade-in">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Xin chào, tôi là [Tên của bạn]</h2>
-                    <p>Tôi là một nhà phát triển web và designer với niềm đam mê tạo ra những sản phẩm đẹp và hiệu quả. Tôi có kinh nghiệm trong HTML, CSS, JavaScript, và các công nghệ hiện đại khác.</p>
-                    <a href="#contact" class="btn">Liên hệ với tôi</a>
+                    <h2>Front End Engineer</h2>
+                    <p>I build accessible, pixel-perfect digital experiences for the web</p>
                 </div>
                 <div class="about-image">
-                    <img src="images/avatar.jpg" alt="Ảnh của tôi">
+                    <img src="images/ningning.jpg" alt="Ảnh của tôi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phần kinh nghiệm -->
+    <section id="experience" class="section fade-in">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <h3>Hinet JSC</h3>
+                    <p class="experience-date">Tháng 1/2022 - Hiện tại</p>
+                    <p class="experience-position">Front End Engineer</p>
+                    <p class="experience-description">ggggg</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Phần Dự án -->
-    <section id="projects" class="section">
+    <section id="projects" class="section fade-in">
         <div class="container">
-            <h2>Dự án của tôi</h2>
+            <h2>My projects</h2>
             <div class="project-list">
-                <div class="project-item">
-                    <img src="images/project1.jpg" alt="Dự án 1">
-                    <h3>Dự án 1</h3>
-                    <p>Mô tả ngắn về dự án 1.</p>
+                <div class="project-item fade-in">
+                    <img src="images/todoapp.jpg" alt="Dự án 1">
+                    <h3>To-do App</h3>
+                    <p>A simple and efficient task management application that allows users to create, update, delete, and mark tasks as completed. It helps users stay organized, track their progress, and manage daily tasks effectively.</p>
                 </div>
-                <div class="project-item">
+                <div class="project-item fade-in">
                     <img src="images/project2.jpg" alt="Dự án 2">
                     <h3>Dự án 2</h3>
                     <p>Mô tả ngắn về dự án 2.</p>
                 </div>
-                <div class="project-item">
+                <div class="project-item fade-in">
                     <img src="images/project3.jpg" alt="Dự án 3">
                     <h3>Dự án 3</h3>
                     <p>Mô tả ngắn về dự án 3.</p>
@@ -62,24 +77,7 @@
         </div>
     </section>
 
-    <!-- Phần Liên hệ -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Liên hệ</h2>
-            <form id="contact-form">
-                <label for="name">Tên:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Lời nhắn:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit" class="btn">Gửi</button>
-            </form>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer>
@@ -88,7 +86,6 @@
             <div class="social-links">
                 <a href="https://github.com" target="_blank">GitHub</a>
                 <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com" target="_blank">Twitter</a>
             </div>
         </div>
     </footer>

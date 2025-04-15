@@ -1,89 +1,289 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset CSS */
+html {
+    scroll-behavior: smooth;
+}
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    box-sizing: border-box;
+}
+/* Ẩn các phần tử ban đầu */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Di chuyển lên trên một chút */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Hiển thị khi phần tử xuất hiện trong viewport */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
 header {
     background: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
 header h1 {
-    margin: 0;
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-weight: 500;
 }
 
-.section {
-    padding: 20px 0;
+nav ul li a.active {
+    color: #ff6347;
+    font-weight: bold;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+/* Phần Giới thiệu */
+#about {
+    padding: 50px 0;
+    background: #fff;
 }
 
-.project-list {
+.about-content {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
-.project-item {
-    background: #f4f4f4;
-    padding: 20px;
-    margin: 10px;
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.about-image {
     flex: 1;
     text-align: center;
 }
 
-footer {
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20%;
+    max-height: 200px;
+}
+
+#experience {
+    padding: 50px 0;
+    background: #f4f4f4;
+}
+
+#experience h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.experience-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);;
+}
+
+.experience-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.experience-position {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.experience-description {
+    font-size: 1rem;
+    color: #444;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
     background: #333;
     color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+/* Phần Dự án */
+#projects {
+    padding: 50px 0;
+    background: #f4f4f4;
+}
+
+#projects h2 {
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.project-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-item img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Hiệu ứng hover cho dự án */
+.project-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.333% - 40px);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px); /* Di chuyển lên trên */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn */
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+}
+
+.project-item img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover img {
+    transform: scale(1.05); /* Phóng to ảnh khi hover */
+}
+
+.project-item p {
+    text-align: justify; /* Căn đều hai bên */
+    line-height: 1.6; /* Chiều cao dòng */
+    margin: 0 auto; /* Căn giữa theo chiều ngang */
+    padding: 0 10px; /* Thêm padding để tránh sát mép */
+    max-width: 90%; /* Giới hạn chiều rộng tối đa */
+}
+
+/* Phần Liên hệ */
+#contact {
+    padding: 50px 0;
+    background: #fff;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
 }
 
 form label {
     display: block;
-    margin: 10px 0 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
 }
 
 form input, form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 form button {
-    display: block;
     width: 100%;
     padding: 10px;
     background: #333;
     color: #fff;
     border: none;
+    border-radius: 5px;
+    font-weight: 500;
     cursor: pointer;
 }
 
 form button:hover {
     background: #555;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer .social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+footer .social-links a:hover {
+    text-decoration: underline;
 }

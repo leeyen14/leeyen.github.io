@@ -1,26 +1,79 @@
-// Xử lý form liên hệ
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault(); // Ngăn form gửi đi
+// Hàm kiểm tra xem phần tử có trong viewport hay không
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
 
-    // Lấy giá trị từ form
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+// Hàm kích hoạt hiệu ứng fade-in
+function activateFadeIn() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach(element => {
+        if (isInViewport(element)) {
+            element.classList.add('visible');
+        }
+    });
+}
 
-    // Hiển thị thông báo
-    alert(`Cảm ơn bạn, ${name}! Tin nhắn của bạn đã được gửi. Tôi sẽ liên hệ lại qua email: ${email}.`);
+// Kích hoạt hiệu ứng khi trang được tải
+document.addEventListener('DOMContentLoaded', activateFadeIn);
 
-    // Reset form
-    document.getElementById('contact-form').reset();
+// Kích hoạt hiệu ứng khi người dùng scroll
+window.addEventListener('scroll', activateFadeIn);
+
+// Xử lý click vào dự án để chuyển hướng đến trang chi tiết
+document.querySelectorAll('.project-item').forEach(project => {
+    project.addEventListener('click', function () {
+        const projectId = this.getAttribute('data-project');
+        window.location.href = `project-detail.html?id=${projectId}`;
+    });
 });
 
-// Hiệu ứng scroll mượt mà khi nhấp vào các liên kết trong menu
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// Xử lý sự kiện click vào các tab
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', function (e) {
         e.preventDefault(); // Ngăn hành vi mặc định
-        const targetId = this.getAttribute('href'); // Lấy ID của phần cần scroll đến
-        document.querySelector(targetId).scrollIntoView({
-            behavior: 'smooth' // Scroll mượt mà
+
+        // Xóa lớp active từ tất cả các tab
+        document.querySelectorAll('nav ul li a').forEach(tab => {
+            tab.classList.remove('active');
         });
+
+        // Thêm lớp active vào tab được click
+        this.classList.add('active');
+
+        // Lấy ID của phần cần scroll đến
+        const targetId = this.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+
+        // Scroll mượt mà đến phần tương ứng
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Tự động thêm lớp active khi scroll đến phần tương ứng
+window.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+            const targetId = section.getAttribute('id');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-target') === targetId) {
+                    link.classList.add('active');
+                }
+            });
+        }
     });
 });
