@@ -287,3 +287,13 @@ footer .social-links a {
 footer .social-links a:hover {
     text-decoration: underline;
 }
+
+.project-item a {
+    text-decoration: none; /* Bỏ gạch chân mặc định */
+    color: inherit; /* Kế thừa màu chữ từ thẻ cha */
+    display: block; /* Biến thẻ a thành block để bao phủ toàn bộ card */
+}
+
+.project-item:hover a {
+    color: inherit; /* Đảm bảo màu chữ không thay đổi khi hover */
+}

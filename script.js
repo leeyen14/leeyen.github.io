@@ -27,9 +27,11 @@ window.addEventListener('scroll', activateFadeIn);
 
 // Xử lý click vào dự án để chuyển hướng đến trang chi tiết
 document.querySelectorAll('.project-item').forEach(project => {
-    project.addEventListener('click', function () {
-        const projectId = this.getAttribute('data-project');
-        window.location.href = `project-detail.html?id=${projectId}`;
+    project.addEventListener('click', function() {
+        const projectLink = this.getAttribute('data-link');
+        if (projectLink) {
+            window.open(projectLink, '_blank'); // Mở tab mới
+        }
     });
 });
 
